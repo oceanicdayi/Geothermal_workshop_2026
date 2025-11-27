@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花蓮瑞穗地熱探勘：挑戰與契機</title>
+    <style>
+        :root {
+            --rock-dark: #37474f; /* 板岩深灰 */
+            --rock-light: #cfd8dc;
+            --water-blue: #00bcd4; /* 溫泉藍 */
+            --danger-red: #d32f2f;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: "微軟正黑體", "Helvetica Neue", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--rock-dark);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--water-blue); }
+        .back-link::before { content: '← '; margin-right: 5px; }
+
+        /* Hero Header */
+        header {
+            background: linear-gradient(135deg, var(--rock-dark), #546e7a);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 5px solid var(--water-blue);
+        }
+
+        header h1 { margin: 0 0 10px 0; font-size: 2.4rem; letter-spacing: 1px; }
+        header .subtitle { font-size: 1.2rem; opacity: 0.9; color: var(--water-blue); font-weight: bold; }
+        header .speaker { margin-top: 15px; font-size: 0.9rem; opacity: 0.8; }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 第一部分：痛點卡片 */
+        .section-header {
+            border-left: 5px solid var(--danger-red);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+        .section-header h2 { margin: 0; color: var(--rock-dark); }
+        .section-header p { margin: 5px 0 0; color: #666; font-size: 0.95rem; }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .pain-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--rock-light);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--danger-red);
+        }
+
+        .pain-icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .pain-card h3 { margin: 0 0 10px 0; color: var(--rock-dark); }
+
+        /* 第二部分：技能樹 Tab 系統 */
+        .skill-section {
+            margin-top: 60px;
+        }
+        .section-header.skill { border-left-color: var(--water-blue); }
+
+        .tabs-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .tabs {
+            display: flex;
+            background: #eceff1;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 20px;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #78909c;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .tab-btn:hover { background: #cfd8dc; color: var(--rock-dark); }
+        
+        .tab-btn.active {
+            background: white;
+            color: var(--water-blue);
+            border-bottom-color: var(--water-blue);
+        }
+
+        .tab-content {
+            padding: 40px;
+            display: none;
+        }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        /* 技能列表樣式 */
+        .skill-group { margin-bottom: 30px; }
+        .skill-group h4 {
+            color: var(--rock-dark);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag-cloud { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .tag {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        /* 不同類型技能的顏色 */
+        .tag.soft { background: #e0f7fa; color: #006064; } /* 軟體 */
+        .tag.lang { background: #efebe9; color: #4e342e; } /* 語言 */
+        .tag.eng { background: #fff3e0; color: #e65100; }  /* 工程 */
+        .tag.geo { background: #f3e5f5; color: #7b1fa2; }  /* 地質 */
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #90a4ae;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="back-link">返回議程總覽</a>
+</nav>
+
+<header>
+    <h1>花蓮瑞穗地熱探勘</h1>
+    <div class="subtitle">變質岩區的挑戰與契機</div>
+    <div class="speaker">講者：張靖 組長 (台灣中油 探採事業部)</div>
+</header>
+
+<div class="container">
+
+    <!-- 實務痛點 (Pain Points) -->
+    <section>
+        <div class="section-header">
+            <h2>⚒️ 實務痛點分析 (Pain Points)</h2>
+            <p>在中油的實際探勘經驗中，瑞穗案場因為特殊的變質岩地質，面臨了不同於一般沈積岩區的艱難挑戰：</p>
+        </div>
+
+        <div class="pain-grid">
+            <!-- 痛點 1 -->
+            <div class="pain-card">
+                <span class="pain-icon">🏔️</span>
+                <h3>地質構造的高度不確定性</h3>
+                <p>瑞穗位於變質岩區（片岩、大理岩），地層經過強烈摺皺與變質。傳統反射震測（Seismic）在這種堅硬且破碎的地層中訊號極差，難以像在平原區一樣清楚「看見」地下構造，導致鑽井目標層定位困難。</p>
+            </div>
+
+            <!-- 痛點 2 -->
+            <div class="pain-card">
+                <span class="pain-icon">🔩</span>
+                <h3>鑽探工程的極限挑戰</h3>
+                <p>變質岩硬度極高且裂隙發育。鑽井過程中常遇到：<br>1. <strong>鑽頭磨損快</strong>：成本飆升。<br>2. <strong>高溫高壓</strong>：電子儀器易故障。<br>3. <strong>大量漏漿 (Lost Circulation)</strong>：泥漿流失到裂隙中，可能導致卡鑽風險。</p>
+            </div>
+
+            <!-- 痛點 3 -->
+            <div class="pain-card">
+                <span class="pain-icon">🧪</span>
+                <h3>熱源與水路的複雜性</h3>
+                <p>不同於宜蘭清水有明確的儲集層，瑞穗的熱水來源更加撲朔迷離。需要分辨熱水是來自深部岩漿加熱？還是斷層帶來的深循環水？水化學特徵複雜，影響後續產能評估。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 職涯技能樹 -->
+    <section class="skill-section">
+        <div class="section-header skill">
+            <h2>🧭 給地科學生的技能樹建議</h2>
+            <p>想進入像中油這樣的探勘單位，面對複雜的變質岩地熱田，你需要具備哪些裝備？</p>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="openTab(event, 'undergrad')">我是大學部學生 (BS)</button>
+                <button class="tab-btn" onclick="openTab(event, 'grad')">我是研究所學生 (MS/PhD)</button>
+            </div>
+
+            <!-- 大學部建議 -->
+            <div id="undergrad" class="tab-content active">
+                <p><strong>階段目標：</strong>建立堅實的地質基礎，並開始接觸數位工具。不要害怕野外，那是理解變質岩的起點。</p>
+                
+                <div class="skill-group">
+                    <h4>1. 數位製圖與基礎分析</h4>
+                    <div class="tag-cloud">
+                        <span class="tag soft">QGIS / ArcGIS</span>
+                        <span class="tag soft">Google Earth Pro</span>
+                        <span class="tag lang">Python (Pandas/Matplotlib)</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>2. 核心地質學科 (打底)</h4>
+                    <div class="tag-cloud">
+                        <span class="tag geo">構造地質學 (Structural Geology)</span>
+                        <span class="tag geo">岩石學 (Petrology)</span>
+                        <span class="tag geo">野外地質調查 (Fieldwork)</span>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem; color:#666;">*在瑞穗這類區域，懂得辨識露頭的葉理、節理方向是基本功。</p>
+                </div>
+            </div>
+
+            <!-- 研究所建議 -->
+            <div id="grad" class="tab-content">
+                <p><strong>階段目標：</strong>專業深化。你需要懂得如何將地質模型轉化為工程參數，或者能夠處理高難度的地球物理數據。</p>
+                
+                <div class="skill-group">
+                    <h4>1. 業界標準軟體 (學會這個更加分)</h4>
+                    <div class="tag-cloud">
+                        <span class="tag soft">Petrel / GOCAD</span> (3D 地質建模)
+                        <span class="tag soft">Leapfrog Geothermal</span> (地熱專用建模)
+                        <span class="tag soft">Phreeqc</span> (水地球化學模擬)
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h4>2. 進階工程與物理知識</h4>
+                    <div class="tag-cloud">
+                        <span class="tag eng">岩石力學 (Rock Mechanics)</span>
+                        <span class="tag eng">鑽井工程 (Drilling Eng.)</span>
+                        <span class="tag geo">大地電磁 (MT) 資料處理</span>
+                    </div>
+                    <p style="margin-top:10px; font-size:0.9rem; color:#666;">*懂得計算井壁穩定性（避免卡鑽）或解讀 MT 電阻率模型，是解決瑞穗痛點的關鍵能力。</p>
+                </div>
+
+                <div class="skill-group">
+                    <h4>3. 進階程式開發</h4>
+                    <div class="tag-cloud">
+                        <span class="tag lang">Python (ObsPy/SimPEG)</span>
+                        <span class="tag lang">Matlab</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>資料來源：2025 地熱永續與技術前瞻論壇 - 講題一 | 內容僅供學術參考</p>
+</footer>
+
+<script>
+    function openTab(evt, tabName) {
+        // 隱藏所有 tab-content
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+            tabcontent[i].classList.remove("active");
+        }
+
+        // 移除所有按鈕的 active 狀態
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // 顯示目前的 tab 並設定按鈕為 active
+        document.getElementById(tabName).style.display = "block";
+        
+        // 簡單的動畫重置技巧
+        setTimeout(() => {
+            document.getElementById(tabName).classList.add("active");
+        }, 10);
+        
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>

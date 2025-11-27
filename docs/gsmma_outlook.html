@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地礦中心地熱探勘展望與職涯指引</title>
+    <style>
+        :root {
+            --gov-green: #2e7d32; /* 公部門穩重綠 */
+            --gov-light: #e8f5e9;
+            --accent-gold: #f9a825;
+            --text-dark: #263238;
+            --bg-color: #f0f2f5;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        body {
+            font-family: "微軟正黑體", "Segoe UI", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* 導覽列 */
+        nav {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--gov-green);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .back-link:hover { color: #1b5e20; transform: translateX(-5px); }
+        .back-link::before { content: '← '; margin-right: 5px; }
+
+        /* Header */
+        header {
+            background: linear-gradient(120deg, var(--gov-green), #1b5e20);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        header h1 { margin: 0; font-size: 2.2rem; }
+        header p { margin-top: 10px; opacity: 0.9; font-size: 1.1rem; }
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -30px auto 50px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* 第一區塊：痛點分析 */
+        .pain-points-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: var(--gov-green);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--gov-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .pain-card h3 { margin-top: 0; color: #1b5e20; }
+
+        /* 第二區塊：職涯技能樹 */
+        .career-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .tab-btn {
+            background: #eee;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+            color: #777;
+        }
+
+        .tab-btn.active {
+            background: var(--gov-green);
+            color: white;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+        }
+
+        .skill-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .skill-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-list h4 {
+            background-color: #f5f5f5;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            color: #333;
+            border-left: 5px solid #aaa;
+        }
+
+        .skill-list.undergrad h4 { border-left-color: #4caf50; } /* 大學部色碼 */
+        .skill-list.grad h4 { border-left-color: #ff9800; } /* 研究所色碼 */
+
+        .tools-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #0277bd;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin: 0 5px 5px 0;
+            font-family: monospace;
+        }
+
+        .tools-tag.eng { background: #ffebee; color: #c62828; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="back-link">返回論壇議程</a>
+</nav>
+
+<header>
+    <h1>地礦中心地熱探勘規劃與展望</h1>
+    <p>講者：陳致言 科長 (經濟部地質調查及礦業管理中心)</p>
+    <div class="badge">政策視角</div>
+    <div class="badge">資源盤點</div>
+</header>
+
+<div class="container">
+
+    <!-- 實務痛點分析 -->
+    <section class="pain-points-section">
+        <h2 class="section-title">⚠️ 探勘實務三大痛點 (Pain Points)</h2>
+        <p style="margin-bottom: 20px;">政府在推動國家級地熱計畫時，面臨著比學術研究更複雜的現實挑戰：</p>
+        
+        <div class="grid-3">
+            <div class="pain-card">
+                <h3>1. 數據的斷層與整合</h3>
+                <p><strong>挑戰：</strong>台灣早期的地質資料多集中於淺層或油氣探勘，缺乏 1-3 公里深的精確地熱數據。且舊資料散落在不同單位，格式不一，數位化與再解釋困難。</p>
+            </div>
+            <div class="pain-card">
+                <h3>2. 土地與法規的重重關卡</h3>
+                <p><strong>挑戰：</strong>潛力場址常位於國家公園、林班地或原住民保留地。行政協調（跨部會溝通）與環境影響評估（EIA）耗時冗長，甚至比鑽井本身更花時間。</p>
+            </div>
+            <div class="pain-card">
+                <h3>3. 資源評估的高不確定性</h3>
+                <p><strong>挑戰：</strong>缺乏足夠的深井驗證。在沒有鑽下去之前，對於儲集層的產能（MW）估算往往存在巨大誤差，導致廠商卻步，政府需承擔初期高風險。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 職涯顧問技能樹 -->
+    <section class="career-section">
+        <h2 class="section-title">🎓 地科系學生的職涯技能樹 (Skill Tree)</h2>
+        <p>因應上述痛點，公部門與產業需要的是能解決問題的人才。請點擊下方按鈕切換建議：</p>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('undergrad')">我是大學部學生 (BS)</button>
+            <button class="tab-btn" onclick="showTab('grad')">我是研究所學生 (MS/PhD)</button>
+        </div>
+
+        <!-- 大學部內容 -->
+        <div id="undergrad" class="skill-content active skill-list undergrad">
+            <p><strong>目標定位：</strong>打好基礎，具備資料處理與視覺化能力，成為好用的「現地調查員」或「助理工程師」。</p>
+            
+            <h4>🛠️ 必備軟體與工具</h4>
+            <div>
+                <span class="tools-tag">QGIS / ArcGIS</span> (必學！政府案件大量依賴空間資訊) <br>
+                <span class="tools-tag">Adobe Illustrator / CorelDraw</span> (繪製地質圖與報告圖表) <br>
+                <span class="tools-tag">Google Earth Pro</span> (基礎場址勘查)
+            </div>
+
+            <h4 style="margin-top: 20px;">💻 程式語言基礎</h4>
+            <div>
+                <span class="tools-tag">Python (Basic)</span> (學會 Pandas 清理數據、Matplotlib 畫圖) <br>
+                <span class="tools-tag">Excel (Advanced)</span> (樞紐分析、VBA，公務體系仍大量使用)
+            </div>
+
+            <h4 style="margin-top: 20px;">⚙️ 跨域工程知識 (入門)</h4>
+            <div>
+                <span class="tools-tag eng">基礎熱力學</span> (了解熱傳導、熱對流機制) <br>
+                <span class="tools-tag eng">地下水文學</span> (地熱就是「熱」+「水」，不懂水文不行)
+            </div>
+        </div>
+
+        <!-- 研究所內容 -->
+        <div id="grad" class="skill-content skill-list grad">
+            <p><strong>目標定位：</strong>具備數值模擬與整合分析能力，成為「專案地質師」、「儲集層工程師」或「決策幕僚」。</p>
+            
+            <h4>🛠️ 進階專業軟體 (Industry Standard)</h4>
+            <div>
+                <span class="tools-tag">Leapfrog Geothermal</span> (業界最搶手的 3D 地質建模技能) <br>
+                <span class="tools-tag">TOUGH2 / TOUGH3</span> (地熱儲集層模擬的標準軟體，極具價值) <br>
+                <span class="tools-tag">COMSOL Multiphysics</span> (多物理場耦合模擬)
+            </div>
+
+            <h4 style="margin-top: 20px;">💻 進階運算與開發</h4>
+            <div>
+                <span class="tools-tag">Python (Advanced)</span> (ObsPy 地震處理、PyTorch 機器學習、Geopandas) <br>
+                <span class="tools-tag">Linux Shell</span> (操作工作站跑大型模擬必備) <br>
+                <span class="tools-tag">Matlab / Fortran</span> (解讀舊有模擬程式碼或學術模型)
+            </div>
+
+            <h4 style="margin-top: 20px;">⚙️ 核心工程學科</h4>
+            <div>
+                <span class="tools-tag eng">儲集層工程 (Reservoir Engineering)</span> (計算產能、壓降、回注效率) <br>
+                <span class="tools-tag eng">鑽井工程 (Drilling Engineering)</span> (了解井下風險、泥漿設計，才能跟石油公司溝通) <br>
+                <span class="tools-tag eng">岩石力學 (Geomechanics)</span> (評估井壁穩定性與 EGS 壓裂設計)
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+<footer>
+    <p>資料整理：基於 2025 論壇演講內容 | 職涯建議僅供參考</p>
+</footer>
+
+<script>
+    function showTab(tabName) {
+        // 隱藏所有內容
+        document.querySelectorAll('.skill-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+
+        // 顯示選中內容
+        document.getElementById(tabName).classList.add('active');
+        
+        // 按鈕樣式切換
+        // 這裡需要判斷點擊的是哪一個按鈕，簡單實作如下
+        if(tabName === 'undergrad') {
+            document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        } else {
+            document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>

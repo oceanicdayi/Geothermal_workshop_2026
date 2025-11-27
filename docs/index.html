@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探熱未來－2025地熱永續與技術前瞻論壇</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22; /* 地熱橘 */
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: "微軟正黑體", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        header p { margin-top: 10px; font-size: 1.2rem; opacity: 0.9; }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* 不同主題類型的顏色標記 */
+        .card.engineering { border-left-color: #3498db; }
+        .card.case-study { border-left-color: #2ecc71; }
+        .card.tech { border-left-color: #9b59b6; }
+        .card.policy { border-left-color: #f1c40f; }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            min-height: 3.6rem; /* 保持標題高度一致 */
+        }
+
+        .speaker {
+            color: #7f8c8d;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .speaker::before {
+            content: '🎤';
+            margin-right: 8px;
+        }
+
+        .summary {
+            flex-grow: 1;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        /* 活躍的連結按鈕 */
+        .btn-active {
+            background-color: var(--accent-color);
+            color: white;
+            box-shadow: 0 4px 6px rgba(230, 126, 34, 0.3);
+        }
+        .btn-active:hover {
+            background-color: #d35400;
+        }
+
+        /* 停用的連結按鈕 (預留) */
+        .btn-disabled {
+            background-color: #ecf0f1;
+            color: #bdc3c7;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>探熱未來</h1>
+    <p>2025 地熱永續與技術前瞻論壇議程總覽</p>
+</header>
+
+<div class="container">
+    <div class="grid">
+        
+        <!-- 主題演講 -->
+        <article class="card engineering">
+            <h3>從地熱儲集層開發工程角度建構探勘策略</h3>
+            <div class="speaker">謝秉志 博士 (成功大學 資源工程系)</div>
+            <div class="summary">從「儲集層工程」視角出發，強調了解流體流動與岩石孔隙率的重要性，利用工程數據模擬降低鑽井風險。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 講題一 -->
+        <article class="card case-study">
+            <h3>花蓮瑞穗地區地熱探勘之挑戰與契機</h3>
+            <div class="speaker">張靖 組長 (台灣中油 探採事業部)</div>
+            <div class="summary">分享瑞穗變質岩區探勘實務經驗，分析地質複雜性帶來的挑戰，並評估該區未來的開發機會。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 講題二 -->
+        <article class="card case-study">
+            <h3>宜蘭土場仁澤區地熱水文地質模式</h3>
+            <div class="speaker">林殷田 組長 (台灣中油 探採研究所)</div>
+            <div class="summary">解析宜蘭土場與仁澤區的地下熱水來源與流動路徑，說明如何利用水文地質資訊優化鑽井選址。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 講題三 (重點連結) -->
+        <article class="card policy" style="border: 2px solid var(--accent-color);">
+            <h3>台電地熱探勘及推動之心得分享</h3>
+            <div class="speaker">劉家成 課長 (台灣電力公司)</div>
+            <div class="summary">分享台電轉型地熱開發者的心路歷程，探討土地取得挑戰、鑽井風險，以及對地球科學學生的職涯建議。</div>
+            <!-- 這裡是連結到子網頁的按鈕 -->
+            <a href="taipower_insight.html" class="btn btn-active">閱讀完整心得與建議 ➔</a>
+        </article>
+
+        <!-- 講題四 -->
+        <article class="card engineering">
+            <h3>大地應力對深層鑽井及EGS開發的重要性</h3>
+            <div class="speaker">袁士哲 博士 (中興工程顧問社)</div>
+            <div class="summary">借鏡非常規油氣經驗，探討大地應力對鑽井穩定性的影響，以及在增強型地熱系統(EGS)中的應用。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 講題五 -->
+        <article class="card tech">
+            <h3>AI 微震監測系統應用於深層地熱探勘</h3>
+            <div class="speaker">郭陳澔 博士 (台灣大學 地質系)</div>
+            <div class="summary">介紹利用高密度地震儀陣列配合 AI 運算，精準描繪地下構造，應用於深層與超臨界地熱探勘。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 講題六 -->
+        <article class="card tech">
+            <h3>現代測井技術在地熱儲層評估中的應用</h3>
+            <div class="speaker">吳泓昱 博士 (興創知能)</div>
+            <div class="summary">以台東初來地熱井為例，說明如何解讀測井數據來評估溫度、滲透率等關鍵參數。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+        <!-- 下午場 -->
+        <article class="card policy">
+            <h3>下午場：政策規劃與電磁探勘技術</h3>
+            <div class="speaker">地礦中心 & 工研院團隊</div>
+            <div class="summary">包含地礦中心探勘藍圖、空中大地電磁探測技術介紹，以及花東變質岩區的電磁探測應用案例。</div>
+            <a href="#" class="btn btn-disabled">暫無詳細頁面</a>
+        </article>
+
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 地熱永續與技術前瞻論壇 | 資訊彙整摘要</p>
+</footer>
+
+</body>
+</html>

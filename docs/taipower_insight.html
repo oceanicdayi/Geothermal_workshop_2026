@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台電地熱探勘心得與學子建議</title>
+    <style>
+        :root {
+            --primary-color: #006064; /* 深青色，代表深層與能源 */
+            --secondary-color: #4dd0e1;
+            --accent-color: #ff7043;
+            --bg-color: #fafafa;
+            --text-color: #37474f;
+        }
+
+        body {
+            font-family: "微軟正黑體", "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* 導覽列 */
+        nav {
+            background-color: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        .back-link:hover { color: var(--accent-color); }
+        .back-link::before { content: '← '; margin-right: 5px; }
+
+        /* 頁首 */
+        .hero {
+            background: linear-gradient(rgba(0, 96, 100, 0.9), rgba(0, 96, 100, 0.8)), url('https://source.unsplash.com/1600x900/?geothermal,energy');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.8rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.3rem; opacity: 0.9; }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+            margin-bottom: 30px;
+        }
+
+        /* 心得列表樣式 */
+        .insight-list {
+            list-style: none;
+            padding: 0;
+        }
+        .insight-list li {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .insight-list strong { color: #e65100; display: block; font-size: 1.1rem; margin-bottom: 5px; }
+
+        /* 學生建議區塊網格 */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .advice-item {
+            background-color: #f1f8e9;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #c5e1a5;
+        }
+        
+        .advice-item h3 {
+            margin-top: 0;
+            color: #33691e;
+            display: flex;
+            align-items: center;
+        }
+        
+        .advice-icon {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .section-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="back-link">返回論壇議程</a>
+    <span style="font-weight:bold; color:#555;">2025 地熱論壇專題</span>
+</nav>
+
+<header class="hero">
+    <h1>台電地熱探勘及推動之心得分享</h1>
+    <p>講者：劉家成 課長 (台灣電力公司 再生能源處)</p>
+</header>
+
+<div class="content-wrapper">
+
+    <!-- 第一部分：心得分享 -->
+    <section class="section-card">
+        <span class="tag">專題摘要</span>
+        <h2>探勘實務與推動心得</h2>
+        <ul class="insight-list">
+            <li>
+                <strong>🔄 角色轉變：從被動到主動</strong>
+                <p>台電已從單純的綠電購買者，轉型為積極的地熱開發參與者。透過與台灣中油（CPC）的「強強聯手」，結合中油的地質鑽探專業與台電的電廠建置能力，共同分擔探勘風險。</p>
+            </li>
+            <li>
+                <strong>🚧 開發挑戰：土地與溝通</strong>
+                <p>地熱開發最棘手的往往不是技術，而是「土地取得」與「地方溝通」。由於地熱資源多位於原保地或林班地，法規繁瑣且需花費大量心力與當地居民溝通。</p>
+            </li>
+            <li>
+                <strong>⚡ 基載電力的價值</strong>
+                <p>不同於太陽能與風電的間歇性，地熱能提供 24 小時穩定的基載電力。儘管鑽井存在「乾井」風險，但為了電網穩定，這是台電堅持投入的關鍵原因。</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- 第二部分：給學生的建議 -->
+    <section class="section-card" style="background-color: #fffde7;">
+        <span class="tag" style="background-color: #fbc02d; color: #333;">職涯指引</span>
+        <h2>給地球科學系學生的建議</h2>
+        <p style="margin-bottom: 30px;">未來的地熱專家，不僅是找石頭的人，更是能源整合者。以下是給在學同學的四點關鍵建議：</p>
+        
+        <div class="advice-grid">
+            <div class="advice-item">
+                <h3><span class="advice-icon">🛠️</span>跨領域整合思維</h3>
+                <p>除了地質本職，應主動修習<strong>流體力學、熱力學或儲集層工程</strong>。未來的地熱人才需要懂得「工程師的語言」，才能判斷地質條件的開發價值。</p>
+            </div>
+
+            <div class="advice-item">
+                <h3><span class="advice-icon">🗣️</span>社會溝通能力</h3>
+                <p>地科人不能只會看數據，更要具備<strong>「轉譯」能力</strong>。需將艱澀的地下模型轉化為大眾聽得懂的語言，以消除社會對地熱（如誘發地震）的疑慮。</p>
+            </div>
+
+            <div class="advice-item">
+                <h3><span class="advice-icon">💻</span>擁抱數據與 AI</h3>
+                <p>現代探勘依賴大數據反演。精進<strong>程式語言 (Python)、GIS 及數值模擬</strong>能力，這將是未來地熱探勘的核心競爭力，不再僅靠野外調查。</p>
+            </div>
+
+            <div class="advice-item">
+                <h3><span class="advice-icon">🌱</span>面對不確定性的韌性</h3>
+                <p>地熱探勘失敗率高。要培養科學家的好奇心與工程師的務實，習慣在數據有限的情況下做推論，並勇於從鑽探失敗中修正模型。</p>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>資料來源：2025地熱永續與技術前瞻論壇 直播錄影 | 內容僅供學術交流參考</p>
+</footer>
+
+</body>
+</html>

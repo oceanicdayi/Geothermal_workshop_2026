@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 微震監測與深層地熱探勘</title>
+    <style>
+        :root {
+            --tech-dark: #1a237e; /* 科技深藍 */
+            --tech-light: #534bae;
+            --heat-color: #ff5722; /* 地熱紅 */
+            --code-bg: #263238;
+            --text-main: #333;
+            --bg-color: #f5f7fa;
+        }
+
+        body {
+            font-family: "微軟正黑體", "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* 導覽列 */
+        nav {
+            background: white;
+            padding: 15px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--tech-dark);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: #e8eaf6;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background-color: var(--tech-dark);
+            color: white;
+        }
+
+        /* Hero Header - 科技感背景 */
+        header {
+            background: linear-gradient(135deg, var(--tech-dark) 0%, #000000 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 模擬地震波裝飾 */
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .speaker-badge {
+            background-color: var(--heat-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 內容區塊 */
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--tech-dark);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--heat-color);
+            padding-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        /* 摘要重點列表 */
+        .tech-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .point-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .point-item:hover { transform: translateY(-3px); border-color: var(--tech-light); }
+
+        .point-item h3 { color: var(--tech-light); margin-top: 0; }
+        
+        /* 關鍵字標籤 */
+        .keyword {
+            background-color: #e3f2fd;
+            color: #1565c0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        /* 學生建議區 - 技能樹風格 */
+        .skill-tree {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .skill-tree { grid-template-columns: 1fr; }
+        }
+
+        .skill-node {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .node-header {
+            background-color: var(--tech-dark);
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .node-content {
+            padding: 20px;
+        }
+
+        /* 模擬程式碼區塊 */
+        .code-snippet {
+            background-color: var(--code-bg);
+            color: #cfd8dc;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border-left: 4px solid var(--heat-color);
+        }
+        .code-comment { color: #78909c; font-style: italic; }
+        .code-func { color: #82b1ff; }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="back-btn">← 返回議程總覽</a>
+</nav>
+
+<header>
+    <h1>AI 微震監測系統應用</h1>
+    <p>於深層與超臨界地熱探勘之突破</p>
+    <div class="speaker-badge">講者：郭陳澔 博士 (國立台灣大學)</div>
+</header>
+
+<div class="container">
+
+    <!-- 演講摘要 -->
+    <section>
+        <div class="section-title">技術摘要與核心痛點</div>
+        <div class="card">
+            <p>本演講聚焦於如何利用<strong>高密度陣列地震儀 (Large-N Array)</strong> 結合 <strong>深度學習 (Deep Learning)</strong>，解決深層地熱探勘中「看穿地下」的難題。</p>
+            
+            <div class="tech-points">
+                <div class="point-item">
+                    <h3>📉 突破傳統極限</h3>
+                    <p>深層地熱區的微震訊號極弱，常被地表雜訊淹沒。傳統方法受限於低 <span class="keyword">訊雜比 (SNR)</span> 與稀疏的測站分布，難以精細描繪儲集層裂隙。</p>
+                </div>
+                <div class="point-item">
+                    <h3>🤖 AI 自動走時挑選</h3>
+                    <p>導入類似 <span class="keyword">U-Net</span> 或 <span class="keyword">Transformer</span> 架構的模型。能像資深分析師般，在極短時間內處理數萬筆波形，精準辨識 P 波與 S 波初動。</p>
+                </div>
+                <div class="point-item">
+                    <h3>🌐 背景雜訊層析成像 (ANT)</h3>
+                    <p>利用高密度節點地震儀陣列，透過計算背景雜訊的互相關函數，無需等待地震發生即可解析地下 S 波速度構造，定位熱源。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 給地球物理系學生的建議 -->
+    <section>
+        <div class="section-title">給地球物理學生的職涯建議</div>
+        <p style="margin-bottom: 20px; color: #555;">未來的地球物理學家，將是「數據科學家」與「地質學家」的混合體。以下是您現在應該點亮的技能樹：</p>
+
+        <div class="skill-tree">
+            
+            <!-- 技能節點 1 -->
+            <div class="skill-node">
+                <div class="node-header">
+                    <span>💻 程式與演算法</span>
+                    <span>Level Up ⇧</span>
+                </div>
+                <div class="node-content">
+                    <p>Python 是標配。不要只會跑軟體，要懂得如何微調 (Fine-tuning) 現有的開源模型。</p>
+                    <div class="code-snippet">
+                        <span class="code-comment"># 未來的地熱工作日常</span><br>
+                        import <span class="code-func">obspy</span><br>
+                        import <span class="code-func">pytorch</span><br>
+                        <br>
+                        <span class="code-comment"># 載入地震波形並進行 AI 預測</span><br>
+                        stream = obspy.read("seismic_data.mseed")<br>
+                        picks = model.predict(stream)<br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 技能節點 2 -->
+            <div class="skill-node">
+                <div class="node-header">
+                    <span>🧠 理論基礎</span>
+                    <span>Core</span>
+                </div>
+                <div class="node-content">
+                    <ul>
+                        <li><strong>反演理論 (Inversion Theory)：</strong> 了解線性與非線性反演的限制，才不會被 AI 產出的漂亮圖片誤導。</li>
+                        <li><strong>岩石物理 (Rock Physics)：</strong> 能夠將物理參數（波速、Q值）轉譯為地質意義（溫度、孔隙率、流體），這是你區別於資工人的關鍵價值。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 技能節點 3 -->
+            <div class="skill-node">
+                <div class="node-header">
+                    <span>📡 新興觀測技術</span>
+                    <span>Trend</span>
+                </div>
+                <div class="node-content">
+                    <p>關注 <strong>DAS (分散式光纖感測)</strong>。利用光纖當作地震儀，能獲得比傳統陣列更高密度的數據。建議多閱讀關於 DAS 應用於微震監測的最新論文。</p>
+                </div>
+            </div>
+
+            <!-- 技能節點 4 -->
+            <div class="skill-node">
+                <div class="node-header">
+                    <span>🤝 開源心態</span>
+                    <span>Mindset</span>
+                </div>
+                <div class="node-content">
+                    <p>現在頂尖的地震學研究多是開源的 (GitHub)。不要害怕去讀資工系或電機系的論文，未來的地熱突破點，往往發生在學科的交界處。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>內容摘要自：2025地熱永續與技術前瞻論壇 | 專為地球物理學習者整理</p>
+</footer>
+
+</body>
+</html>
